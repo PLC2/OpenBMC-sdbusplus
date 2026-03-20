@@ -44,6 +44,7 @@ TEST(MakeDbusArgsTuple, NoArgs)
     auto tuple_out = make_dbus_args_tuple(input_tuple);
     static_assert(std::tuple_size_v<decltype(tuple_out)> == 0,
                   "Size was wrong");
+    EXPECT_EQ(std::tuple_size_v<decltype(tuple_out)>, 0U);
 }
 } // namespace utility
 } // namespace sdbusplus
