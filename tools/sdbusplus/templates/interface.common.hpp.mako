@@ -6,6 +6,7 @@
 #include <string_view>
 #include <tuple>
 #include <type_traits>
+#include <utility>
 
 #include <sdbusplus/exception.hpp>
 #include <sdbusplus/message.hpp>
@@ -232,7 +233,7 @@ inline std::string ${interface.classname}::convert${e.name}ToString(
 
     if (i == std::end(details::mapping${interface.classname}${e.name}))
     {
-        throw std::invalid_argument(std::to_string(static_cast<int>(v)));
+        throw std::invalid_argument(std::to_string(std::to_underlying(v)));
     }
     return std::string(std::get<0>(*i));
 }
